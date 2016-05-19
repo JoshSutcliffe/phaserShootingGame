@@ -57,7 +57,7 @@ function create() {
   // background
   game.add.tileSprite(0, 0, game.width, game.height, 'background');
 
-  // ============= PLAYER SPRITE =========== // 
+  // ============= PLAYER SPRITE =========== //
   blobSprite = game.add.sprite(300, 300, 'blob');
   blobSprite.anchor.set(0.5);
   game.physics.enable(blobSprite, Phaser.Physics.ARCADE);
@@ -79,7 +79,7 @@ function create() {
   };
 
   // Make the little buggers move about
-  game.time.events.loop(interval, function() {        
+  game.time.events.loop(interval, function() {
     nextMovedStar = game.rnd.integerInRange(0, stars.length);
     this.game.add.tween(stars.getAt(nextMovedStar)).to({x: this.game.world.randomX, y: this.game.world.randomY}, 19000, Phaser.Easing.Linear.InOut, true);
   }, this);
@@ -113,7 +113,7 @@ function create() {
   cursors = game.input.keyboard.createCursorKeys();
   game.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
 
-  // Game start 
+  // Game start
   startButton = game.add.button(game.world.width*0.5, game.world.height*0.5, 'start', startGame, this, 1, 0, 2);
   startButton.anchor.set(0.5);
 
@@ -189,9 +189,9 @@ function screenWrap(blobSprite) {
 }
 
 // have to pass in which star
-function collectStar (player, star) {    
+function collectStar (player, star) {
 
-  // Now that the individual star is passed in and not a group, 
+  // Now that the individual star is passed in and not a group,
   // destroy will now work and remove star from the collection
   // Better than .kill() which keeps it in the collection
   star.destroy();
@@ -222,7 +222,7 @@ function createAsteroids1() {
   var asteroid1 = asteroids1.create(game.world.randomX, game.world.randomY, 'asteroid1');
 
   // Make the little buggers move about
-  game.time.events.loop(interval, function() {        
+  game.time.events.loop(interval, function() {
     nextMovedAsteroid1 = game.rnd.integerInRange(0, asteroids1.length);
     this.game.add.tween(asteroids1.getAt(nextMovedAsteroid1)).to({x: this.game.world.randomX, y: this.game.world.randomY}, 19000, Phaser.Easing.Linear.InOut, true);
   }, this);
@@ -259,7 +259,6 @@ function createUfos() {
 
 function destroyAsteroid1(bullet, asteroid) {
 
-  console.log('destroy function called');
   asteroid.destroy();
 
 };
